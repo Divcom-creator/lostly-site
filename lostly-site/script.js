@@ -248,3 +248,23 @@ muteButton?.addEventListener('click', () => {
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   window.clearInterval(slideTimer);
 }
+
+/* Connexion de test au backend Lostly */
+async function testLostlyAPI() {
+  try {
+    const response = await fetch(
+      'https://lostly-api.lostly-divcom.workers.dev/api/status'
+    );
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Connexion au backend Lostly réussie :', data);
+  } catch (error) {
+    console.error('Connexion au backend Lostly impossible :', error);
+  }
+}
+
+testLostlyAPI();
