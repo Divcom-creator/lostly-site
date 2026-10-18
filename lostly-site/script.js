@@ -115,6 +115,7 @@ searchForm?.addEventListener('submit', event => {
   runSearch(searchInput.value);
 });
 searchInput?.addEventListener('search', () => runSearch(searchInput.value));
+searchInput?.addEventListener('input', () => runSearch(searchInput.value));
 searchInput?.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     searchInput.value = '';
